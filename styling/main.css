@@ -16,20 +16,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: white;
     opacity: 0.5;
 }
 
-header ul {
+header .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header ul li {
-    list-style: none;
-    margin-left: 2em;
-    margin-right: 2em;
+header .navbaritem {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
 }
 
 .scroller {
@@ -41,8 +41,8 @@ header ul li {
 .page {
     height: 100vh;
     width: 100vw;
-    scroll-snap-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
+    scroll-snap-align: start;
 }

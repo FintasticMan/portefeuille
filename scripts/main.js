@@ -1,6 +1,10 @@
-const colourPages = function() {
+const colours = ["#84CAE7", "#4CE0D2", "#22AAA1", "#136F63", "#041B15"];
+
+const colourPages = () => {
     let pages = document.querySelectorAll(".page");
     for (let i = 0; i < pages.length; i++) {
-        pages[i].style.background = "#" + (0x1000000 + Math.floor(Math.random() * 0x1000000)).toString(16).substr(1);
+        pages[i].style.background = colours[i % colours.length];
     }
 }
+
+window.onload = colourPages;
