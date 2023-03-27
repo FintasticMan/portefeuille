@@ -38,12 +38,12 @@ jobs:
             - run: |
                 npm i
                 npm exec tsc
-                npm exec sass -- styling/:styling/
+                npm exec sass -- page/styling/:page/styling/
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v1
               with:
                   # Upload entire repository
-                  path: '.'
+                  path: "page"
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v2
