@@ -51,11 +51,11 @@ $hamburgersize: $headerheight / 2;
         display: none;
 
         font-size: $hamburgersize * 2 / 3;
-        background-color: #222;
+        background-color: #FFF;
         &:hover {
-            background-color: #282828;
+            background-color: #F8F8F8;
         }
-        border: 2px solid #444;
+        border: 2px solid #DDD;
         border-radius: 10px;
         height: $hamburgersize;
         width: $hamburgersize;
@@ -164,9 +164,13 @@ $hamburgersize: $headerheight / 2;
     #header {
         background-color: $darktextbackground;
 
-        // #hamburger {
-        //     background-color: $darktextbackground;
-        // }
+        #hamburger {
+            background-color: #222;
+            &:hover {
+                background-color: #282828;
+            }
+            border: 2px solid #444;
+        }
     }
 
     .scroller .page .textbox {
