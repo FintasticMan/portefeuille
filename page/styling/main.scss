@@ -5,10 +5,7 @@ $darktextcolour: #DDD;
 
 $headerheight: 7vh;
 
-@media (prefers-color-scheme: dark) {
-    $textbackground: #333;
-    $textcolour: #DDD;
-}
+$margin: 15%;
 
 * {
     padding: 0;
@@ -16,15 +13,13 @@ $headerheight: 7vh;
     scroll-behavior: smooth;
     box-sizing: border-box;
     color: $textcolour;
-    -webkit-text-size-adjust: auto;
-            text-size-adjust: auto;
 }
 
 body {
     font-family: sans-serif;
 }
 
-header {
+#header {
     position: fixed;
     height: $headerheight;
     width: 100vw;
@@ -66,15 +61,16 @@ header {
         scroll-snap-align: start;
 
         %box {
-            max-height: 85%;
-            max-width: 42.5%;
+            max-height: 100% - $margin;
+            max-width: (100% - $margin) / 2;
             width: 100%;
-            margin: 2.5%;
-            border-radius: 15px;
+            margin: $margin / 2 $margin / 4;
         }
 
         .textbox {
             @extend %box;
+
+            border-radius: 15px;
 
             line-height: 1.8;
 
@@ -85,6 +81,8 @@ header {
 
         .box {
             @extend %box;
+
+            height: 100%;
 
             display: flex;
             align-items: center;
@@ -105,11 +103,8 @@ header {
 
             %box {
                 max-height: 100%;
-                max-width: 85%;
-            }
-
-            .box {
-                align-items: end;
+                max-width: 100% - $margin;
+                margin: $margin / 4 $margin / 2;
             }
         }
     }
@@ -120,7 +115,7 @@ header {
         color: $darktextcolour;
     }
 
-    header {
+    #header {
         background-color: $darktextbackground;
     }
 
