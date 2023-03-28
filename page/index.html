@@ -14,7 +14,7 @@
                 <div class="navbaritem"><a href="#me">About me</a></div>
                 <div class="navbaritem"><a href="#infinitime">InfiniTime</a></div>
                 <div class="navbaritem"><a href="#volumetric">Volumetric rendering</a></div>
-                <div class="navbaritem">item3</div>
+                <div class="navbaritem"><a href="#fuzzing">Fuzzing</a></div>
                 <div class="navbaritem">item4</div>
             </div>
         </header>
@@ -36,26 +36,47 @@
                 <div class="textbox">
                     <h1>InfiniTime</h1>
                     <p>
-                        <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime</a> is an open-source smartwatch operating system written in C++, specifically for the <a href="https://www.pine64.org/pinetime/">PineTime.</a>
-                        I've been working on improving the user experience by adding features I believe to be useful, and improving the development experience by improving things like the continuous integration systems since October 2021.
-                        In February 2023, I met up with the project lead, <a href="https://github.com/JF002">JF</a>, at <a href="https://fosdem.org/2023/">FOSDEM</a>, a yearly meet-up in Brussels for many different free and open-source projects.
-                        A couple of weeks later, he asked if I would like to join the InfiniTime team!
+                    <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime</a> is an open-source smartwatch operating system written in C++,
+                    specifically for the <a href="https://www.pine64.org/pinetime/">PineTime.</a>
+                    I've been working on improving the user experience by adding features I believe to be useful,
+                    and improving the development experience by improving things like the continuous integration systems since October 2021.
+                    In February 2023, I met up with the project lead, <a href="https://github.com/JF002">JF</a>,
+                    at <a href="https://fosdem.org/2023/">FOSDEM</a>, a yearly meet-up in Brussels for many different free and open-source projects.
+                    A couple of weeks later, he asked if I would like to join the InfiniTime team!
                     </p>
                 </div>
             </div>
 
             <div class="page" id="volumetric">
                 <div class="textbox">
-                    <h1>Volumetrisch renderen PWS</h1>
-                    <p>Hierbij </p>
+                    <h1>Rendering volumetric objects</h1>
+                    <p>
+                    For my thesis to finish off secondary school, I worked together with <a href="https://github.com/Davidrbl">David</a> to make three different renderers for volumetric objects.
+                    We used the direct volume rendering, marching cubes and texture slicing algorithms as a base for our renderers.
+                    We programmed them on the GPU using OpenGL using the <a href="https://github.com/Dav1dde/glad">glad</a> loader for C.
+                    The one based on direct volume rendering is the most realistic, but it uses the most resources and is the slowest of the three.
+                    Our renderer based on marching cubes is very fast because it uses traditional rastering to render, but it doesn't have transparency.
+                    The texture slicing one is relatively accurate and quite fast, but the slices do need to be regenerated every time the camera moves, meaning that it is harder to integrate with other 3D objects.
+                    </p>
                 </div>
-                <div class="box"></div>
+                <div class="box">
+                    <img src="/images/volume-renderer.png" alt="A skull rendered using our direct volume renderer">
+                </div>
             </div>
 
-            <div class="page">
-                <div class="box"></div>
+            <div class="page" id="fuzzing">
+                <div class="box">
+                    <img src="/images/aflplusplus.png" alt="My custom fuzzing algorithm in use">
+                </div>
                 <div class="textbox">
-                    <p>This is the accomplishment before that.</p>
+                    <h1>Fuzzing</h1>
+                    <p>
+                    In my fifth year of secondary school, I took a course on fuzzing, using automatically generated inputs to try to find vulnerabilities in software, from the VU.
+                    It sparked an interest in learning about low-level code, such as assembly language.
+                    As part of the course, I wrote a custom fuzzing algorithm for the fuzzer called <a href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a>.
+                    It was really fun to do, even if the lack of quality documentation did frustrate me sometimes.<br><br>
+                    <i>Like really, no matter how good your code is, you shouldn't have to read it to find out how to use it!</i>
+                    </p>
                 </div>
             </div>
 

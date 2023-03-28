@@ -6,6 +6,7 @@ $darktextcolour: #DDD;
 $headerheight: 7vh;
 
 $margin: 15%;
+$cornerradius: 15px;
 
 * {
     padding: 0;
@@ -37,6 +38,8 @@ body {
         .navbaritem {
             margin-left: 1.5em;
             margin-right: 1.5em;
+
+            font-size: 1.25rem;
         }
     }
 }
@@ -70,8 +73,9 @@ body {
         .textbox {
             @extend %box;
 
-            border-radius: 15px;
+            border-radius: $cornerradius;
 
+            font-size: 1.25rem;
             line-height: 1.8;
 
             padding: 2em;
@@ -92,7 +96,7 @@ body {
                 max-height: 100%;
                 max-width: 100%;
 
-                border-radius: 15px;
+                border-radius: $cornerradius;
             }
         }
     }
