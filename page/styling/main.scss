@@ -106,6 +106,10 @@ body {
                 max-width: 100% - $margin;
                 margin: $margin / 4 $margin / 2;
             }
+
+            .box {
+                height: unset;
+            }
         }
     }
 }
