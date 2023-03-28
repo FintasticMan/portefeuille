@@ -1,4 +1,4 @@
-$textbackground: #FFF;
+$textbackground: #EEE;
 $textcolour: #444;
 $darktextbackground: #333;
 $darktextcolour: #DDD;
@@ -8,15 +8,14 @@ $headerheight: 7vh;
 $margin: 15%;
 $cornerradius: 15px;
 
+$hamburgersize: $headerheight / 2;
+
 * {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
     color: $textcolour;
-}
-
-body {
     font-family: sans-serif;
 }
 
@@ -28,18 +27,57 @@ body {
     align-items: center;
     justify-content: center;
 
+    z-index: 127; // make sure the hamburger menu is on top
+
     background-color: $textbackground;
+
+    transition: height 0.3s ease;
 
     .navbar {
         display: flex;
         align-items: center;
         justify-content: center;
 
+        list-style: none;
+
         .navbaritem {
-            margin-left: 1.5em;
-            margin-right: 1.5em;
+            margin: 1.25em 1.5em;
 
             font-size: 1.25rem;
+        }
+    }
+
+    #hamburger {
+        display: none;
+
+        font-size: $hamburgersize * 2 / 3;
+        background-color: #222;
+        &:hover {
+            background-color: #282828;
+        }
+        border: 2px solid #444;
+        border-radius: 10px;
+        height: $hamburgersize;
+        width: $hamburgersize;
+
+        align-self: flex-start;
+        position: absolute;
+        right: 0;
+        margin: ($headerheight - $hamburgersize) / 2;
+    }
+
+    @media screen and (max-width: 100vh) { // if the width is smaller than the height
+        .navbar {
+            flex-direction: column;
+            display: none;
+        }
+
+        .show {
+            display: flex;
+        }
+
+        #hamburger {
+            display: initial;
         }
     }
 }
@@ -101,7 +139,7 @@ body {
         }
     }
 
-    @media (max-width: 100vh) { // if the width is smaller than the height
+    @media screen and (max-width: 100vh) { // if the width is smaller than the height
         .page {
             flex-direction: column;
 
@@ -118,13 +156,17 @@ body {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
     * {
         color: $darktextcolour;
     }
 
     #header {
         background-color: $darktextbackground;
+
+        // #hamburger {
+        //     background-color: $darktextbackground;
+        // }
     }
 
     .scroller .page .textbox {
