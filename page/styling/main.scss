@@ -1,11 +1,23 @@
 $textbackground: #FFF;
 $textcolour: #444;
+$darktextbackground: #333;
+$darktextcolour: #DDD;
+
+$headerheight: 7vh;
+
+@media (prefers-color-scheme: dark) {
+    $textbackground: #333;
+    $textcolour: #DDD;
+}
 
 * {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    color: $textcolour;
+    -webkit-text-size-adjust: auto;
+            text-size-adjust: auto;
 }
 
 body {
@@ -14,13 +26,13 @@ body {
 
 header {
     position: fixed;
-    height: 7vh;
+    height: $headerheight;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: #FFF;
+    background-color: $textbackground;
 
     .navbar {
         display: flex;
@@ -35,12 +47,15 @@ header {
 }
 
 .scroller {
-    max-height: 100vh;
+    max-height: 100vh - $headerheight;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
+    position: fixed;
+    top: $headerheight;
+
     .page {
-        height: 100vh;
+        height: 100vh - $headerheight;
         width: 100vw;
 
         display: flex;
@@ -66,7 +81,6 @@ header {
             padding: 2em;
 
             background-color: $textbackground;
-            color: $textcolour;
         }
 
         .box {
@@ -98,5 +112,19 @@ header {
                 align-items: end;
             }
         }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        color: $darktextcolour;
+    }
+
+    header {
+        background-color: $darktextbackground;
+    }
+
+    .scroller .page .textbox {
+        background-color: $darktextbackground;
     }
 }
