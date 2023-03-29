@@ -5,6 +5,7 @@ function colourPages() {
     } else {
         colours = ["#84CAE7", "#EABFCB", "#22AAA1", "#514C94", "#DFD5A5"];
     }
+
     const pages = document.querySelectorAll<HTMLElement>(".page");
     for (let i = 0; i < pages.length; i++) {
         pages[i].style.backgroundColor = colours[i % colours.length];
@@ -24,6 +25,7 @@ function clickHamburger() {
     menu.classList.toggle("show");
 
     if (header.classList.toggle("expanded")) {
+        // make header exactly big enough to fit all the navbar items
         const height = menu.offsetHeight;
         header.style.height = height.toString() + "px";
     } else {
@@ -40,7 +42,7 @@ function addHamburgerListener() {
 function calcAge(date: Date) {
     const now = Date.now();
     const diff = now - date.getTime();
-    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.2425));
+    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.2425)); // number of milliseconds in a year
 }
 
 function updateAge() {
@@ -48,9 +50,10 @@ function updateAge() {
     if (elem === null) {
         return;
     }
-    elem.innerHTML = calcAge(new Date(2005, 7, 6)).toString();
+    elem.innerHTML = calcAge(new Date(2005, 7, 6)).toString(); // my birthday!!
 }
 
+// only run the code once the HTML has finished loading
 window.addEventListener("load", colourPages);
 window.addEventListener("load", addHamburgerListener);
 window.addEventListener("load", updateAge);
