@@ -8,14 +8,26 @@ $headerheight: 7vh;
 $margin: 15%;
 $cornerradius: 15px;
 
-$hamburgersize: $headerheight / 2;
+$buttonsize: 4.5vh;
+
+:root {
+    --background-colour: #EEE;
+    --font-colour: #444;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background-colour: #333;
+        --font-colour: #DDD;
+    }
+}
 
 * {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    color: $textcolour;
+    color: var(--font-colour);
     font-family: sans-serif;
 }
 
@@ -29,9 +41,32 @@ $hamburgersize: $headerheight / 2;
 
     z-index: 127; // make sure the hamburger menu is on top
 
-    background-color: $textbackground;
+    background-color: var(--background-colour);
 
     transition: height 0.3s ease;
+
+    %button {
+        --background-colour: #FFF;
+        --hover-colour: #F8F8F8;
+        --border-colour: #DDD;
+
+        background-color: var(--background-colour);
+        &:hover {
+            background-color: var(--hover-colour);
+        }
+        border: 2px solid var(--border-colour);
+        border-radius: 10px;
+        height: $buttonsize;
+        margin: ($headerheight - $buttonsize) / 2;
+    }
+
+    @media screen and (prefers-color-scheme: dark) {
+        %button {
+            --background-colour: #222;
+            --hover-colour: #282828;
+            --border-colour: #444;
+        }
+    }
 
     .navbar {
         display: flex;
@@ -41,29 +76,34 @@ $hamburgersize: $headerheight / 2;
         list-style: none;
 
         .navbaritem {
-            margin: 1.25em 1.5em;
+            margin: 1em 1.5em;
 
             font-size: 1.25rem;
+
+            a {
+                @extend %button;
+
+                padding: 0.33em;
+
+                text-decoration: none;
+            }
         }
     }
 
     #hamburger {
+        @extend %button;
+
         display: none;
 
-        font-size: $hamburgersize * 2 / 3;
-        background-color: #FFF;
-        &:hover {
-            background-color: #F8F8F8;
-        }
-        border: 2px solid #DDD;
-        border-radius: 10px;
-        height: $hamburgersize;
-        width: $hamburgersize;
+        aspect-ratio: 1;
+
+        font-size: $buttonsize * 2 / 3;
+
+        cursor: pointer;
 
         align-self: flex-start;
         position: absolute;
         right: 0;
-        margin: ($headerheight - $hamburgersize) / 2;
     }
 
     @media screen and (max-width: 100vh) { // if the width is smaller than the height
@@ -118,7 +158,7 @@ $hamburgersize: $headerheight / 2;
 
             padding: 2em;
 
-            background-color: $textbackground;
+            background-color: var(--background-colour);
         }
 
         .box {
@@ -153,27 +193,5 @@ $hamburgersize: $headerheight / 2;
                 height: unset;
             }
         }
-    }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    * {
-        color: $darktextcolour;
-    }
-
-    #header {
-        background-color: $darktextbackground;
-
-        #hamburger {
-            background-color: #222;
-            &:hover {
-                background-color: #282828;
-            }
-            border: 2px solid #444;
-        }
-    }
-
-    .scroller .page .textbox {
-        background-color: $darktextbackground;
     }
 }
