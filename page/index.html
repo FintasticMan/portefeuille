@@ -3,13 +3,17 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Portfolio</title>
+        <title>Finlay's Portfolio</title>
 
+        <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
         <link rel="stylesheet" type="text/css" href="/styling/main.css">
         <script src="/scripts/main.js"></script>
     </head>
     <body>
         <nav id="header">
+            <div class="logo">
+                <a href="/"><img src="/images/logo.svg" alt="Logo"></a>
+            </div>
             <ol class="navbar">
                 <li class="navbaritem"><a href="#me">About me</a></li>
                 <li class="navbaritem"><a href="#infinitime">InfiniTime</a></li>
@@ -25,11 +29,19 @@
                 <div class="textbox">
                     <h1>Finlay Davidson</h1>
                     <p>
-                    Linux nerd.<br>
+                    <span id="age"></span> year old British Linux nerd from Amsterdam.<br>
                     I program things I think are cool sometimes.
-                    Mostly in C or C++, but I know some other languages like Python.
-                    I'm planning to learn Rust at some point soon <i>-calm down Rustaceans-</i>.
+                    Mostly in C or C++, but I also use some other languages like Python.
+                    Yes, yes, I <i>am</i> planning to learn Rust at some point soon <i>-calm down Rustaceans-</i>.
                     </p>
+                    <div class="icon-footer">
+                        <div class="social-icon">
+                            <a href="https://github.com/FintasticMan"><img src="/images/github.svg" alt="Link to my GitHub"></a>
+                        </div>
+                        <div class="social-icon">
+                            <a href="https://www.linkedin.com/in/finlay-davidson-5b5910267/"><img src="/images/linkedin.svg" alt="Link to my LinkedIn"></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="box">
                     <img src="/images/headshot.jpg" alt="A picture of me">
@@ -45,8 +57,8 @@
                     <p>
                     <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime</a> is an open-source smartwatch operating system written in C++,
                     specifically for the <a href="https://www.pine64.org/pinetime/">PineTime.</a>
-                    I've been working on improving the user experience by adding features I believe to be useful,
-                    and improving the development experience by improving things like the continuous integration systems since October 2021.
+                    I've been working on improving the user experience by adding features I believe to be useful since October 2021.
+                    I'm also working on improving the development experience by improving things like the continuous integration systems.
                     In February 2023, I met up with the project lead, <a href="https://github.com/JF002">JF</a>,
                     at <a href="https://fosdem.org/2023/">FOSDEM</a>, a yearly meet-up in Brussels for many different free and open-source projects.
                     A couple of weeks later, he asked if I would like to join the InfiniTime team!
@@ -56,9 +68,9 @@
 
             <div class="page" id="volumetric">
                 <div class="textbox">
-                    <h1><a href="/files/pws.pdf">Rendering volumetric objects</a></h1>
+                    <h1>Rendering volumetric objects</h1>
                     <p>
-                    For my thesis to finish off secondary school, I worked together with <a href="https://github.com/Davidrbl">David</a> to make three different renderers for volumetric objects.
+                    For my thesis to finish off secondary school, I worked together with <a href="https://github.com/Davidrbl">David</a> to make <a href="/files/pws.pdf">three different renderers for volumetric objects</a>.
                     We used the direct volume rendering, marching cubes and texture slicing algorithms as a base for our renderers.
                     We programmed them on the GPU using OpenGL using the <a href="https://github.com/Dav1dde/glad">glad</a> loader for C.
                     The one based on direct volume rendering is the most realistic, but it uses the most resources and is the slowest of the three.
@@ -78,22 +90,25 @@
                 <div class="textbox">
                     <h1>Fuzzing</h1>
                     <p>
-                    In my fifth year of secondary school, I took a course on fuzzing, using automatically generated inputs to try to find vulnerabilities in software, from the VU.
+                    In my fifth year of secondary school, I took a course on fuzzing, using automatically generated inputs to try to find vulnerabilities in software, from the Vrije Universiteit Amsterdam.
                     It sparked an interest in learning about low-level code, such as assembly language.
                     As part of the course, I wrote a custom fuzzing algorithm for the fuzzer called <a href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a>.
                     It was really fun to do, even if the lack of quality documentation did frustrate me sometimes.<br><br>
                     <i>Like really, no matter how good your code is, you shouldn't have to read it to find out how to use it!</i>
-                    </p>
+    </p>
                 </div>
             </div>
 
             <div class="page" id="ai">
                 <div class="textbox">
-                    <h1><a href="https://ai-learns-to-drive.riverhill.xyz/">AI learns to drive</a></h1>
+                    <h1>AI learns to drive</h1>
                     <p>
                     Back in year 4, I wrote a <a href="https://github.com/FintasticMan/AI-learns-to-drive">racetrack simulator with self-driving cars</a>!
-                    It is written in JavaScript, using the <a href="https://p5js.org/">p5.js</a> library for graphics and the <a href="https://github.com/CodingTrain/Toy-Neural-Network-JS">Toy-Neural-Network-JS</a> library for the neural networks.
-                    It uses an evolutionary algorithm for improving the cars, by ranking the cars by how far they'd got by the time they died.
+                    The goal was to have cars that can learn to drive around a racetrack all by themselves.
+                    By using an evolutionary algorithm to teach the cars by trial and error, they can get quite good quite quickly.
+                    It ranks the cars based on how far they'd got before they crashed, and then mutates the best to populate the next generation.
+                    It is written in JavaScript, using the <a href="https://p5js.org/">p5.js</a> library for graphics and the <a href="https://github.com/CodingTrain/Toy-Neural-Network-JS">Toy-Neural-Network-JS</a> library for the neural networks.<br>
+                    You can see it in action for yourself by looking <a href="https://ai-learns-to-drive.riverhill.xyz">right here</a>.
                     </p>
                 </div>
                 <div class="box">

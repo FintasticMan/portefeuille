@@ -15,13 +15,6 @@ $buttonsize: 4.5vh;
     --font-colour: #444;
 }
 
-@media screen and (prefers-color-scheme: dark) {
-    :root {
-        --background-colour: #333;
-        --font-colour: #DDD;
-    }
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -45,9 +38,16 @@ $buttonsize: 4.5vh;
 
     transition: height 0.3s ease;
 
+    .logo {
+        align-self: flex-start;
+        // position: absolute;
+        // left: 0;
+        margin: calc(($headerheight - 64px) / 2);
+    }
+
     %button {
         --background-colour: #FFF;
-        --hover-colour: #F8F8F8;
+        --hover-colour: #E8E8E8;
         --border-colour: #DDD;
 
         background-color: var(--background-colour);
@@ -58,14 +58,6 @@ $buttonsize: 4.5vh;
         border-radius: 10px;
         height: $buttonsize;
         margin: ($headerheight - $buttonsize) / 2;
-    }
-
-    @media screen and (prefers-color-scheme: dark) {
-        %button {
-            --background-colour: #222;
-            --hover-colour: #282828;
-            --border-colour: #444;
-        }
     }
 
     .navbar {
@@ -159,6 +151,21 @@ $buttonsize: 4.5vh;
             padding: 2em;
 
             background-color: var(--background-colour);
+
+            .icon-footer {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+
+                max-width: 90%;
+                margin-top: 5%;
+
+                .social-icon {
+                    width: 6.25vh;
+                    margin-left: 2.5%;
+                    margin-right: 2.5%;
+                }
+            }
         }
 
         .box {
@@ -193,5 +200,24 @@ $buttonsize: 4.5vh;
                 height: unset;
             }
         }
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background-colour: #333;
+        --font-colour: #DDD;
+    }
+
+    #header %button {
+        --background-colour: #222;
+        --hover-colour: #383838;
+        --border-colour: #444;
+    }
+
+    .social-icon img {
+        // real funky stuff, see: https://codepen.io/sosuke/pen/Pjoqqp
+        // equates to #DDD
+        filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(7495%) hue-rotate(214deg) brightness(116%) contrast(73%);
     }
 }
