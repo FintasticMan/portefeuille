@@ -1,5 +1,10 @@
 function colourPages() {
-    const colours: string[] = ["#84CAE7", "#4CE0D2", "#22AAA1"];
+    let colours: string[];
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        colours = ["#289ACB", "#C85475", "#17726C", "#6D2F90", "#C5B359"]
+    } else {
+        colours = ["#84CAE7", "#EABFCB", "#22AAA1", "#9E56C8", "#DFD5A5"];
+    }
     const pages = document.querySelectorAll<HTMLElement>(".page");
     for (let i = 0; i < pages.length; i++) {
         pages[i].style.backgroundColor = colours[i % colours.length];
