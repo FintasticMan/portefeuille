@@ -35,6 +35,8 @@ $buttonsize: 4.5vh;
 
     .logo {
         align-self: flex-start;
+        position: absolute;
+        left: 0;
         margin: calc(($headerheight - 64px) / 2);
     }
 
