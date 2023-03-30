@@ -35,8 +35,13 @@ function clickHamburger() {
 
 function addHamburgerListener() {
     const hamburger = document.getElementById("hamburger");
+    const items = document.querySelectorAll<HTMLElement>(".navbaritem");
 
     hamburger?.addEventListener("click", clickHamburger);
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", clickHamburger);
+    }
 }
 
 function calcAge(date: Date) {
